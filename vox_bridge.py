@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 
+import sys
+import os
 import argparse
+
+# Ensure vendored argostranslate is found
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(script_dir, "vox_bridge", "utils"))
+
 from vox_bridge.utils.ffmpeg import convert_audio
 from vox_bridge.utils.transcribe import transcribe_cli
 from vox_bridge.utils.translate import translate_cli, download_model
-import os
 import tempfile
 import subprocess
 
@@ -21,7 +27,7 @@ def initialize():
     model_script_path = os.path.join(script_dir, "model.py")
     print("Initializing vosk-bridge. This may take a while...")
     try:
-        subprocess.run(["python", model_script_path], check=True)
+        subprocess.run([sys.executable, model_script_path], check=True)
         download_model()
         print("Initialization complete.")
 
@@ -62,7 +68,7 @@ def transcribe(input_file, lang):
 def main():
     parser = argparse.ArgumentParser(
         description="Vox-Bridge CLI Tool",
-        epilog="""
+        epilog=r"""
         Examples:
 
         # Translate text to Hindi:
