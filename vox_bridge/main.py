@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
-from vox_bridge.utils.ffmpeg import convert_audio
+from vox_bridge.utils.ffmpeg_utils import convert_audio
 from vox_bridge.utils.transcribe import transcribe_audio
 from vox_bridge.utils.translate import translate_text
 import os

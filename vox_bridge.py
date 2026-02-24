@@ -8,7 +8,7 @@ import argparse
 script_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(script_dir, "vox_bridge", "utils"))
 
-from vox_bridge.utils.ffmpeg import convert_audio
+from vox_bridge.utils.ffmpeg_utils import convert_audio
 from vox_bridge.utils.transcribe import transcribe_cli
 from vox_bridge.utils.translate import translate_cli, download_model
 import tempfile

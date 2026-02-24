@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from vox_bridge.utils.ffmpeg import convert_audio # Replace with the name of your module where convert_audio is defined
+from vox_bridge.utils.ffmpeg_utils import convert_audio
 
 class TestConvertAudio(unittest.TestCase):
 
